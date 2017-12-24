@@ -17,8 +17,8 @@ Lobby_fnc_slotIn
 If you don't use `CfgRemoteExec`, you don't need to whitelist them.
 
 ### Setup Dev Environment
-Open `cmd.exe` in the same folder as this `README.md` and execute:
+Open `cmd.exe` and execute:
 ```bat
-mklink /d "%UserProfile%\Documents\Arma 3 - Other Profiles\<ARMA-PROFILE-NAME>\missions\LOBBY.VR" "%cd%\missions\LOBBY.VR"
+mklink /d "%UserProfile%\Documents\Arma 3 - Other Profiles\<ARMA-PROFILE-NAME>\missions\LOBBY.VR" "<PATH-TO-PROJECT-FOLDER>\missions\LOBBY.VR"
 ```
 where `<ARMA-PROFILE-NAME>` is your active user profile name. E.g. `commy2`. This mission can then be played from the Eden-Editor.
