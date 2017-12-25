@@ -4,6 +4,7 @@ briefing = 0;
 debriefing = 0;
 
 #include "CfgFunctions.hpp"
+#include "ExportedGUIBaseClasses.hpp"
 #include "Lobby\gui.hpp"
 
 onPauseScript[] = {"Lobby_fnc_onPause"};

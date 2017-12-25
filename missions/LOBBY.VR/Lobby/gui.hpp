@@ -1,6 +1,5 @@
 // by commy2
 #include "script_component.hpp"
-#include "ExportedGUIBaseClasses.hpp"
 
 class Lobby_Display {
     onLoad = "_this call compile preprocessFileLineNumbers 'Lobby\initDisplayLobby.sqf'";

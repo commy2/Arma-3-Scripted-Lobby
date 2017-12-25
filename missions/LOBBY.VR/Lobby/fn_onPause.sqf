@@ -1,3 +1,12 @@
+/* ----------------------------------------------------------------------------
+Internal Function: Lobby_fnc_onPause
+
+Description:
+    Handle opening the pause menu via ESC key.
+
+Author:
+    commy2
+---------------------------------------------------------------------------- */
 #include "script_component.hpp"
 
 params ["_display"];

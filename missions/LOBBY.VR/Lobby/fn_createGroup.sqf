@@ -1,3 +1,26 @@
+/* ----------------------------------------------------------------------------
+Function: Lobby_fnc_createGroup
+
+Description:
+    Create a group on the lobby screen.
+    Local effects: has to be executed on every machine.
+
+Parameters:
+    _name - Displayed name of the group. <STRING>
+    _side - Side of the crated group.
+            Can be west, east, resistance or civlian. <SIDE>
+
+Returns:
+    Id of the created group. <STRING>
+
+Examples:
+    (begin example)
+        _group1 = ["Team 1", west] call Lobby_fnc_createGroup;
+    (end)
+
+Author:
+    commy2
+---------------------------------------------------------------------------- */
 #include "script_component.hpp"
 
 params [

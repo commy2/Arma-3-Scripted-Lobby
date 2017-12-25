@@ -1,3 +1,12 @@
+/* ----------------------------------------------------------------------------
+Internal Function: Lobby_fnc_slotOut
+
+Description:
+    Handle leaving a slot on the lobby screen.
+
+Author:
+    commy2
+---------------------------------------------------------------------------- */
 #include "script_component.hpp"
 
 if (!isServer) exitWith {false};

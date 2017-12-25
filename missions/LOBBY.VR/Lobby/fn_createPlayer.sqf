@@ -1,3 +1,12 @@
+/* ----------------------------------------------------------------------------
+Internal Function: Lobby_fnc_createPlayer
+
+Description:
+    Creates the playable entity after leaving the lobby screen.
+
+Author:
+    commy2
+---------------------------------------------------------------------------- */
 #include "script_component.hpp"
 
 params [

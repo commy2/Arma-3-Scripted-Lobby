@@ -1,3 +1,12 @@
+/* ----------------------------------------------------------------------------
+Internal Function: Lobby_fnc_exit
+
+Description:
+    Handle exiting the server on the lobby screen.
+
+Author:
+    commy2
+---------------------------------------------------------------------------- */
 #include "script_component.hpp"
 
 params ["_display"];
