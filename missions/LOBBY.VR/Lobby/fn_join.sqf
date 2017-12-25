@@ -22,5 +22,3 @@ if (isNull _group) then {
 };
 
 [_unit] joinSilent _group;
-
-_unit setVariable ["Lobby_isLobbyCreatedUnit", true];

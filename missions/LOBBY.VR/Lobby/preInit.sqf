@@ -5,6 +5,7 @@ Lobby_slottedPlayers = NAMESPACE_NULL;
 Lobby_localPlayer = [profileName, clientOwner];
 Lobby_connectedPlayers = [Lobby_localPlayer];
 Lobby_locked = true;
+Lobby_selectedSlot = "";
 
 if (isServer) then {
     missionNamespace setVariable ["Lobby_slottedPlayers", CREATE_NAMESPACE_GLOBAL, true];
@@ -25,9 +26,11 @@ if (isServer) then {
     addMissionEventHandler ["HandleDisconnect", {
         params ["_unit"];
 
-        if (_unit getVariable ["Lobby_isLobbyCreatedUnit", false]) then {
+        if (!isNil {_unit getVariable "Lobby_slot"}) then {
             deleteVehicle _unit;
         };
+
+        nil
     }];
 };
 

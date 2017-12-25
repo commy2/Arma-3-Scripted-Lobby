@@ -80,6 +80,7 @@ private _fnc_updateSlots = {
 
     if (Lobby_updateSlots) then {
         Lobby_updateSlots = false;
+        Lobby_selectedSlot = "";
 
         private _activeControlGroups = [];
 
@@ -114,6 +115,7 @@ private _fnc_updateSlots = {
                     };
 
                     if (_owner isEqualTo clientOwner) then {
+                        Lobby_selectedSlot = _x;
                         _control lbSetColor [_index, [COLOR_YELLOW]];
                         _control lbSetColorRight [_index, [COLOR_YELLOW]];
                         _control lbSetSelectColor [_index, [COLOR_YELLOW]];
@@ -204,6 +206,7 @@ _ctrlButtonConfirm ctrlAddEventHandler ["ButtonClick", {
     _ctrlButtonConfirm ctrlEnable false;
 }];
 
+_ctrlButtonConfirm ctrlEnable false;
 _ctrlButtonUnlock ctrlEnable false;
 
 _ctrlButtonUnlock ctrlAddEventHandler ["ButtonClick", {
@@ -211,28 +214,21 @@ _ctrlButtonUnlock ctrlAddEventHandler ["ButtonClick", {
     missionNamespace setVariable ["Lobby_locked", !Lobby_locked, true];
 }];
 
-private _fnc_updateLocked = {
+private _fnc_updateButtons = {
     params ["_display"];
     private _ctrlButtonUnlock = _display displayCtrl IDC_LOBBY_BUTTON_UNLOCK;
+    private _ctrlButtonConfirm = _display displayCtrl IDC_LOBBY_BUTTON_CONFIRM;
 
     _ctrlButtonUnlock ctrlEnable (isServer || call BIS_fnc_admin > 0);
     _ctrlButtonUnlock ctrlSetText localize (["str_disp_multi_lock", "str_disp_multi_unlock"] select Lobby_locked);
+    _ctrlButtonConfirm ctrlEnable (Lobby_selectedSlot != "");
 
     if (Lobby_accepted && !Lobby_locked) then {
         // leave lobby
         _display closeDisplay 1;
-
-        private _slot = "";
-
-        {
-            if ((Lobby_slottedPlayers getVariable _x) isEqualTo Lobby_localPlayer) exitWith {
-                _slot = _x;
-            };
-        } forEach allVariables Lobby_slottedPlayers;
-
-        _slot call Lobby_fnc_confirm;
+        Lobby_selectedSlot call Lobby_fnc_confirm;
     };
 };
 
-_display displayAddEventHandler ["MouseMoving", _fnc_updateLocked];
-_display displayAddEventHandler ["MouseHolding", _fnc_updateLocked];
+_display displayAddEventHandler ["MouseMoving", _fnc_updateButtons];
+_display displayAddEventHandler ["MouseHolding", _fnc_updateButtons];

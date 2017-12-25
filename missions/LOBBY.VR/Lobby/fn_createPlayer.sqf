@@ -24,6 +24,7 @@ private _unit = _group createUnit [_type, [0,0,0], [], 0, "NONE"];
 };
 
 selectPlayer _unit;
+_unit setVariable ["Lobby_slot", _slot, true];
 
 if !(_oldPlayer isKindOf "VirtualMan_F") then {
     deleteVehicle _oldPlayer;

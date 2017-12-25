@@ -11,4 +11,7 @@ Author:
 
 params ["_slot"];
 
+// same slot, just continue
+if (player getVariable ["Lobby_slot", ""] == _slot) exitWith {};
+
 _slot call Lobby_fnc_createPlayer;
