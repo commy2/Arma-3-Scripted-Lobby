@@ -12,7 +12,7 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={0,0,0};
+		pos[]={0,5.1999998,0};
 		dir[]={1,0,0};
 		up[]={0,0,1};
 		aside[]={0,1,0};
@@ -78,12 +78,13 @@ class Mission
 					flags=7;
 					class Attributes
 					{
-						init="this enableSimulation false; this allowDamage false;";
+						init="call{this enableSimulation false;" \n "this allowDamage false;}";
 						isPlayer=1;
 						isPlayable=1;
 					};
 					id=1;
 					type="VirtualMan_F";
+					atlOffset=-5.0014386;
 				};
 				class Item1
 				{
@@ -92,11 +93,12 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this enableSimulation false; this allowDamage false;";
+						init="call{this enableSimulation false;" \n "this allowDamage false;}";
 						isPlayable=1;
 					};
 					id=2;
 					type="VirtualMan_F";
+					atlOffset=-5.0014386;
 				};
 				class Item2
 				{
@@ -105,11 +107,12 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this enableSimulation false; this allowDamage false;";
+						init="call{this enableSimulation false;" \n "this allowDamage false;}";
 						isPlayable=1;
 					};
 					id=3;
 					type="VirtualMan_F";
+					atlOffset=-5.0014386;
 				};
 				class Item3
 				{
@@ -118,11 +121,12 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this enableSimulation false; this allowDamage false;";
+						init="call{this enableSimulation false;" \n "this allowDamage false;}";
 						isPlayable=1;
 					};
 					id=4;
 					type="VirtualMan_F";
+					atlOffset=-5.0014386;
 				};
 				class Item4
 				{
@@ -131,11 +135,12 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this enableSimulation false; this allowDamage false;";
+						init="call{this enableSimulation false;" \n "this allowDamage false;}";
 						isPlayable=1;
 					};
 					id=5;
 					type="VirtualMan_F";
+					atlOffset=-5.0014386;
 				};
 				class Item5
 				{
@@ -144,11 +149,12 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this enableSimulation false; this allowDamage false;";
+						init="call{this enableSimulation false;" \n "this allowDamage false;}";
 						isPlayable=1;
 					};
 					id=6;
 					type="VirtualMan_F";
+					atlOffset=-5.0014386;
 				};
 				class Item6
 				{
@@ -157,11 +163,12 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this enableSimulation false; this allowDamage false;";
+						init="call{this enableSimulation false;" \n "this allowDamage false;}";
 						isPlayable=1;
 					};
 					id=7;
 					type="VirtualMan_F";
+					atlOffset=-5.0014386;
 				};
 				class Item7
 				{
@@ -170,11 +177,12 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this enableSimulation false; this allowDamage false;";
+						init="call{this enableSimulation false;" \n "this allowDamage false;}";
 						isPlayable=1;
 					};
 					id=8;
 					type="VirtualMan_F";
+					atlOffset=-5.0014386;
 				};
 				class Item8
 				{
@@ -183,11 +191,12 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this enableSimulation false; this allowDamage false;";
+						init="call{this enableSimulation false;" \n "this allowDamage false;}";
 						isPlayable=1;
 					};
 					id=9;
 					type="VirtualMan_F";
+					atlOffset=-5.0014386;
 				};
 				class Item9
 				{
@@ -196,11 +205,12 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this enableSimulation false; this allowDamage false;";
+						init="call{this enableSimulation false;" \n "this allowDamage false;}";
 						isPlayable=1;
 					};
 					id=10;
 					type="VirtualMan_F";
+					atlOffset=-5.0014386;
 				};
 				class Item10
 				{
@@ -209,11 +219,12 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this enableSimulation false; this allowDamage false;";
+						init="call{this enableSimulation false;" \n "this allowDamage false;}";
 						isPlayable=1;
 					};
 					id=11;
 					type="VirtualMan_F";
+					atlOffset=-5.0014386;
 				};
 				class Item11
 				{
@@ -222,11 +233,12 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this enableSimulation false; this allowDamage false;";
+						init="call{this enableSimulation false;" \n "this allowDamage false;}";
 						isPlayable=1;
 					};
 					id=12;
 					type="VirtualMan_F";
+					atlOffset=-5.0014386;
 				};
 				class Item12
 				{
@@ -235,11 +247,12 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this enableSimulation false; this allowDamage false;";
+						init="call{this enableSimulation false;" \n "this allowDamage false;}";
 						isPlayable=1;
 					};
 					id=13;
 					type="VirtualMan_F";
+					atlOffset=-5.0014386;
 				};
 				class Item13
 				{
@@ -248,11 +261,12 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this enableSimulation false; this allowDamage false;";
+						init="call{this enableSimulation false;" \n "this allowDamage false;}";
 						isPlayable=1;
 					};
 					id=14;
 					type="VirtualMan_F";
+					atlOffset=-5.0014386;
 				};
 				class Item14
 				{
@@ -261,11 +275,12 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this enableSimulation false; this allowDamage false;";
+						init="call{this enableSimulation false;" \n "this allowDamage false;}";
 						isPlayable=1;
 					};
 					id=15;
 					type="VirtualMan_F";
+					atlOffset=-5.0014386;
 				};
 				class Item15
 				{
@@ -274,11 +289,12 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this enableSimulation false; this allowDamage false;";
+						init="call{this enableSimulation false;" \n "this allowDamage false;}";
 						isPlayable=1;
 					};
 					id=16;
 					type="VirtualMan_F";
+					atlOffset=-5.0014386;
 				};
 				class Item16
 				{
@@ -287,11 +303,12 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this enableSimulation false; this allowDamage false;";
+						init="call{this enableSimulation false;" \n "this allowDamage false;}";
 						isPlayable=1;
 					};
 					id=17;
 					type="VirtualMan_F";
+					atlOffset=-5.0014386;
 				};
 				class Item17
 				{
@@ -300,11 +317,12 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this enableSimulation false; this allowDamage false;";
+						init="call{this enableSimulation false;" \n "this allowDamage false;}";
 						isPlayable=1;
 					};
 					id=18;
 					type="VirtualMan_F";
+					atlOffset=-5.0014386;
 				};
 				class Item18
 				{
@@ -313,11 +331,12 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this enableSimulation false; this allowDamage false;";
+						init="call{this enableSimulation false;" \n "this allowDamage false;}";
 						isPlayable=1;
 					};
 					id=19;
 					type="VirtualMan_F";
+					atlOffset=-5.0014386;
 				};
 				class Item19
 				{
@@ -326,17 +345,19 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this enableSimulation false; this allowDamage false;";
+						init="call{this enableSimulation false;" \n "this allowDamage false;}";
 						isPlayable=1;
 					};
 					id=20;
 					type="VirtualMan_F";
+					atlOffset=-5.0014386;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=0;
+			atlOffset=-5.0014386;
 		};
 	};
 };
