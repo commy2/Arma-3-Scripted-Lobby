@@ -11,4 +11,4 @@ Author:
 
 params ["_slot"];
 
-[] call Lobby_fnc_createPlayer;
+_slot call Lobby_fnc_createPlayer;

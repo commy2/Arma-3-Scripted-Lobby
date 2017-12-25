@@ -9,23 +9,17 @@ Author:
 ---------------------------------------------------------------------------- */
 #include "script_component.hpp"
 
-params [
-    ["_side", west, [west]],
-    ["_group", grpNull, [grpNull]]
-];
+params ["_slot"];
 
-private _type = "C_man_1";
-private _fnc_init = {};
+private _type = GETVAR(_slot,className);
+private _init = GETVAR(_slot,init);
 
 private _oldPlayer = player;
-
-if (isNull _group) then {
-    _group = createGroup _side;
-};
+private _group = group _oldPlayer;
 
 private _unit = _group createUnit [_type, [0,0,0], [], 0, "NONE"];
 
-[_unit, name _oldPlayer, face _oldPlayer, speaker _oldPlayer, pitch _oldPlayer] spawn {
+[_unit, [name _oldPlayer, face _oldPlayer, speaker _oldPlayer, pitch _oldPlayer], _slot] spawn {
     _this remoteExecCall ["Lobby_fnc_setIdentity"];
 };
 
@@ -35,4 +29,4 @@ if !(_oldPlayer isKindOf "VirtualMan_F") then {
     deleteVehicle _oldPlayer;
 };
 
-[_unit] call _fnc_init;
+[_unit] call _init;

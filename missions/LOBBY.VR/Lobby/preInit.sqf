@@ -8,6 +8,7 @@ Lobby_locked = true;
 
 if (isServer) then {
     missionNamespace setVariable ["Lobby_slottedPlayers", CREATE_NAMESPACE_GLOBAL, true];
+    Lobby_ingameGroups = CREATE_NAMESPACE;
 
     addMissionEventHandler ["PlayerConnected", {
         Lobby_connectedPlayers pushBackUnique [_this select 2, _this select 4];

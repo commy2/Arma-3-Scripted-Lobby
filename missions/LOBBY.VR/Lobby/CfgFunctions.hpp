@@ -12,6 +12,7 @@ class Lobby {
         class onPause;
         class createPlayer;
         class setIdentity;
+        class join;
     };
 
     class InternalUI {

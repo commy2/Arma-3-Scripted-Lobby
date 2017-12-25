@@ -31,12 +31,12 @@ params [
 private _group = "";
 
 if (_name isEqualTo "") exitWith {
-    "Name cannot be empty" call BIS_fnc_error;
+    "Name cannot be empty." call BIS_fnc_error;
     _group
 };
 
 if !(_side in [west, east, resistance, civilian]) exitWith {
-    "Invalid side" call BIS_fnc_error;
+    "Invalid side." call BIS_fnc_error;
     _group
 };
 
