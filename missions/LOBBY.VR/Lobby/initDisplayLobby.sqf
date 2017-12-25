@@ -24,7 +24,11 @@ _ctrlMapName ctrlSetText worldName;
 private _ctrlDescription = _display displayCtrl IDC_LOBBY_DESCRIPTION;
 private _ctrlDescriptionText = _display displayCtrl IDC_LOBBY_DESCRIPTION_TEXT;
 private _description = getMissionConfigValue ["Lobby_missionDescription", ""];
-_ctrlDescription ctrlSetText localize "str_disp_srvsetup_desc";
+
+if (_description != "") then {
+    _ctrlDescription ctrlSetText localize "str_disp_srvsetup_desc";
+};
+
 _ctrlDescriptionText ctrlSetText _description;
 _ctrlDescriptionText ctrlEnable false; // multiline text boxes are selectable by default
 
@@ -44,12 +48,22 @@ private _fnc_updatePlayers = {
     lbClear _ctrlPlayerList;
 
     {
-        _ctrlPlayerList lbAdd (_x select 0);
-        _ctrlPlayerList lbSetTextRight [_forEachIndex, str (_x select 1)];
+        _x params ["_playerName", "_owner"];
+        private _index = _ctrlPlayerList lbAdd _playerName;
+        _ctrlPlayerList lbSetValue [_index, _owner];
+        _ctrlPlayerList lbSetTextRight [_index, str _owner];
     } forEach Lobby_connectedPlayers;
 
     lbSort _ctrlPlayerList;
 };
+
+_ctrlPlayerList ctrlAddEventHandler ["LBDblClick", {
+    params ["_ctrlPlayerList", "_index"];
+    [
+        ctrlParent _ctrlPlayerList,
+        [_ctrlPlayerList lbText _index, _ctrlPlayerList lbValue _index]
+    ] call Lobby_fnc_kick;
+}];
 
 _display displayAddEventHandler ["MouseMoving", _fnc_updatePlayers];
 _display displayAddEventHandler ["MouseHolding", _fnc_updatePlayers];

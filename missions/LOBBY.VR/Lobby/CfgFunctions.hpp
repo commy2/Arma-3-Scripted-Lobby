@@ -20,6 +20,7 @@ class Lobby {
         class slotOut;
         class exit;
         class confirm;
+        class kick;
     };
 
     class API {

@@ -24,7 +24,7 @@ params ["_display"];
     ] call BIS_fnc_GUImessage;
 
     if (_return) then {
-        "Lobby_Exit" cutText [getMissionConfigValue ["Lobby_leaveServerMessage", ""], "BLACK IN", 1E7];
+        "Lobby_Exit" cutText ["", "BLACK IN", 1E7];
         endMission "Lobby_Exit";
         _display closeDisplay 2;
     };  
