@@ -2,6 +2,15 @@
 #include "script_component.hpp"
 #include "\a3\ui_f\hpp\defineDIKCodes.inc"
 
+/* ----------------------------------------------------------------------------
+Internal Variable: Lobby_accepted
+
+Description:
+    If true, the local playerhas confirmed the slot selection. <BOOLEAN>
+    Starts out as false every time the lobby screen is opened. Set to true by
+    selecting a slot and pressing "OK". Set to false by changing the slot
+    selection.
+---------------------------------------------------------------------------- */
 Lobby_accepted = false;
 
 params ["_display"];
@@ -68,6 +77,15 @@ _ctrlPlayerList ctrlAddEventHandler ["LBDblClick", {
 _display displayAddEventHandler ["MouseMoving", _fnc_updatePlayers];
 _display displayAddEventHandler ["MouseHolding", _fnc_updatePlayers];
 
+/* ----------------------------------------------------------------------------
+Internal Variable: Lobby_updateSlots
+
+Description:
+    If true, slot list will be updated next draw frame. <BOOLEAN>
+    The connected player list is updated every frame. The slot list is updated
+    only if this variable is set to true. Set to true by various functions that
+    require the slot screen to be updated. Afterwards set to false.
+---------------------------------------------------------------------------- */
 Lobby_updateSlots = true;
 
 private _fnc_updateSlots = {
@@ -83,6 +101,8 @@ private _fnc_updateSlots = {
         Lobby_selectedSlot = "";
 
         private _activeControlGroups = [];
+        private _slottedPlayers = 0;
+        private _expectedSlottedPlayers = count Lobby_connectedPlayers;
 
         {
             _x params ["_side", "_control", "_color"];
@@ -112,6 +132,8 @@ private _fnc_updateSlots = {
                         _control lbSetTextRight [_index, _name];
                         _control lbSetColorRight [_index, [COLOR_WHITE]];
                         _control lbSetSelectColorRight [_index, [COLOR_WHITE]];
+
+                        INC(_slottedPlayers);
                     };
 
                     if (_owner isEqualTo clientOwner) then {
@@ -145,6 +167,10 @@ private _fnc_updateSlots = {
         {
             _x ctrlEnable false;
         } forEach ([_ctrlSlotsWest, _ctrlSlotsEast, _ctrlSlotsResistance, _ctrlSlotsCivilian] - _activeControlGroups);
+
+        if (!Lobby_ready && {_slottedPlayers == _expectedSlottedPlayers}) then {
+            missionNamespace setVariable ["Lobby_ready", true, true];
+        };
     };
 };
 
@@ -162,6 +188,8 @@ private _ctrlSlotsCivilian = _display displayCtrl IDC_LOBBY_SLOTS_CIV;
         private _data = _control lbData _index;
 
         if (_data isEqualTo "") exitWith {};
+
+        Lobby_accepted = false;
 
         if (Lobby_slottedPlayers getVariable [_data, []] isEqualTo Lobby_localPlayer) then {
             [Lobby_localPlayer] remoteExecCall ["Lobby_fnc_slotOut", 2];
@@ -204,6 +232,10 @@ _ctrlButtonConfirm ctrlAddEventHandler ["ButtonClick", {
 
     Lobby_accepted = true;
     _ctrlButtonConfirm ctrlEnable false;
+
+    if (!Lobby_ready && {isServer || call BIS_fnc_admin > 0}) then {
+        missionNamespace setVariable ["Lobby_ready", true, true];
+    };
 }];
 
 _ctrlButtonConfirm ctrlEnable false;
@@ -221,9 +253,9 @@ private _fnc_updateButtons = {
 
     _ctrlButtonUnlock ctrlEnable (isServer || call BIS_fnc_admin > 0);
     _ctrlButtonUnlock ctrlSetText localize (["str_disp_multi_lock", "str_disp_multi_unlock"] select Lobby_locked);
-    _ctrlButtonConfirm ctrlEnable (Lobby_selectedSlot != "");
+    _ctrlButtonConfirm ctrlEnable (!Lobby_accepted && {Lobby_selectedSlot != ""});
 
-    if (Lobby_accepted && !Lobby_locked) then {
+    if (Lobby_accepted && Lobby_ready && !Lobby_locked) then {
         // leave lobby
         _display closeDisplay 1;
         Lobby_selectedSlot call Lobby_fnc_confirm;

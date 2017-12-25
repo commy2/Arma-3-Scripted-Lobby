@@ -49,7 +49,7 @@ Description:
     slot selection. <BOOLEAN>
     Updated by the admin / host client.
 ---------------------------------------------------------------------------- */
-Lobby_locked = true;
+Lobby_locked = false;
 
 /* ----------------------------------------------------------------------------
 Internal Variable: Lobby_ready
@@ -59,6 +59,7 @@ Description:
     confirm their slot selection. <BOOLEAN>
     At mission start it is set to false. Set to true by either the admin / host
     confirming the slot selection or by everyone confirming their selection.
+    The variable is set globally and never resets to false.
 ---------------------------------------------------------------------------- */
 Lobby_ready = false;
 
