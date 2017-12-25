@@ -13,9 +13,10 @@ params ["_slot"];
 
 private _type = GETVAR(_slot,className);
 private _init = GETVAR(_slot,init);
+private _side = GETVAR(GETVAR(_slot,group),side);
 
 private _oldPlayer = player;
-private _group = group _oldPlayer;
+private _group = createGroup [_side, true];
 
 private _unit = _group createUnit [_type, [0,0,0], [], 0, "NONE"];
 

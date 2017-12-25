@@ -15,7 +15,7 @@ Lobby_localPlayer = [profileName, clientOwner];
 Internal Variable: Lobby_connectedPlayers
 
 Description:
-    Player arrays (as described above) of all connected machines. <ARRAY>
+    Player arrays (as described above) of all connected machines. <ARRAY[]>
     Updated by the server when a player connects or disconnects.
 ---------------------------------------------------------------------------- */
 Lobby_connectedPlayers = [Lobby_localPlayer];
@@ -24,7 +24,7 @@ Lobby_connectedPlayers = [Lobby_localPlayer];
 Internal Variable: Lobby_slottedPlayers
 
 Description:
-    Pseudo namespace. <OBJECT>
+    Global pseudo namespace. <OBJECT[ARRAY[]]>
     Contains variables with slot (Lobby_fnc_createSlot) as identifier. Variable
     value is the player array (as described above) that is currently occupying
     the slot. Set by the server via Lobby_fnc_slotIn and Lobby_fnc_slotOut.
@@ -63,8 +63,29 @@ Description:
 ---------------------------------------------------------------------------- */
 Lobby_ready = false;
 
+/* ----------------------------------------------------------------------------
+Internal Variable: Lobby_acceptedPlayers
+
+Description:
+    Global pseudo namespace. <OBJECT[BOOLEAN]>
+    Lobby_accepted state of all clients. Identifier is stringified client owner.
+    If true, the corresponding player has confirmed the slot selection. Starts
+    out as false every time the lobby screen is opened. Set to true by selecting
+    a slot and pressing "OK". Set to false by changing the slot selection.
+---------------------------------------------------------------------------- */
+Lobby_acceptedPlayers = NAMESPACE_NULL;
+
 if (isServer) then {
     missionNamespace setVariable ["Lobby_slottedPlayers", CREATE_NAMESPACE_GLOBAL, true];
+    missionNamespace setVariable ["Lobby_acceptedPlayers", CREATE_NAMESPACE_GLOBAL, true];
+
+    /* ----------------------------------------------------------------------------
+    Internal Variable: Lobby_ingameGroups
+
+    Description:
+        Local pseudo namespace. <LOCATION[GROUP]>
+        Identifier is group id. Value is the GROUP associated with that group id.
+    ---------------------------------------------------------------------------- */
     Lobby_ingameGroups = CREATE_NAMESPACE;
 
     addMissionEventHandler ["PlayerConnected", {
