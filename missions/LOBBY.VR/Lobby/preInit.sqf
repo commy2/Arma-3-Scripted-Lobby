@@ -21,6 +21,14 @@ if (isServer) then {
 
         [[_this select 2, _this select 4]] call Lobby_fnc_slotOut;
     }];
+
+    addMissionEventHandler ["HandleDisconnect", {
+        params ["_unit"];
+
+        if (_unit getVariable ["Lobby_isLobbyCreatedUnit", false]) then {
+            deleteVehicle _unit;
+        };
+    }];
 };
 
 INIT;
