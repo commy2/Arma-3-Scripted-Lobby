@@ -158,7 +158,7 @@ private _fnc_updateSlots = {
         ];
 
         ctrlPosition _ctrlSlotsBackground params ["_left", "_top", "_width", "_height"];
-        _width = _width / count _activeControlGroups;
+        _width = _width / (count _activeControlGroups max 1);
 
         {
             private _left = _left + _width * _forEachIndex;
