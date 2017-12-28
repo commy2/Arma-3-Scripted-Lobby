@@ -30,8 +30,8 @@ isNil {
         for "_i" from 1 to _slotNumber do {
             private _entitiy = _group create3DENEntity ["Object", "VirtualMan_F", [0,0,0]];
             _entitiy set3DENAttribute ["ControlMP", true];
-            _entitiy set3DENAttribute ["allowDamage", true];
-            _entitiy set3DENAttribute ["enableSimulation", true];
+            _entitiy set3DENAttribute ["allowDamage", false];
+            _entitiy set3DENAttribute ["enableSimulation", false];
 
             if (_i isEqualTo 1) then {
                 _group = group _entitiy;
@@ -40,11 +40,11 @@ isNil {
         };
 
         {
-            _x set3DENAttribute ["ControlSP", true];
+            _x set3DENAttribute ["ControlSP", false];
         } forEach _oldPlayers;
 
         {
-            _x set3DENAttribute ["ControlMP", true];
+            _x set3DENAttribute ["ControlMP", false];
         } forEach _oldPlayables;
     };
 };
