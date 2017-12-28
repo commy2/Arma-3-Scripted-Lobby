@@ -1,7 +1,11 @@
+// for debugging
 enableDebugConsole = 2;
+
+// required mission config entries
 skipLobby = 1;
 briefing = 0;
 debriefing = 0;
+onPauseScript[] = {"Lobby_fnc_onPause"};
 
 // debriefing for MP. Requires CBA to be applied.
 class Extended_DisplayLoad_EventHandlers {
@@ -10,10 +14,11 @@ class Extended_DisplayLoad_EventHandlers {
     };
 };
 
-#include "CfgFunctions.hpp"
+class CfgFunctions {
+    #include "Lobby\CfgFunctions.hpp"
+};
+
 #include "ExportedGUIBaseClasses.hpp"
 #include "Lobby\gui.hpp"
-
-onPauseScript[] = {"Lobby_fnc_onPause"};
 
 Lobby_missionDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse feugiat purus orci, et vehicula purus ultrices gravida. Suspendisse potenti. Pellentesque a dui eu felis posuere egestas eu ut arcu. Nullam sed dignissim purus. Curabitur id malesuada neque. Pellentesque vitae velit id felis ornare suscipit. Aliquam consectetur, nisl eget sollicitudin cursus, nisi eros condimentum mi, at tincidunt justo turpis ac elit. Morbi pharetra diam a auctor euismod. Etiam eleifend, tellus vel euismod commodo, quam metus cursus nisi, tristique mattis velit arcu vel leo. Etiam non dolor a nulla laoreet vulputate eget eu lacus. Aliquam pretium odio id quam viverra, et vulputate leo placerat. Vestibulum ornare dignissim luctus.";

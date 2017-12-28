@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: setup.sqf
+Script: setup.sqf
 
 Description:
     Automates the creation of playable slots in the editor.
