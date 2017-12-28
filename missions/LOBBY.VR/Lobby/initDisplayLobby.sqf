@@ -155,7 +155,7 @@ private _fnc_updateSlots = {
             [west, _ctrlSlotsWest, [COLOR_WEST]],
             [east, _ctrlSlotsEast, [COLOR_EAST]],
             [resistance, _ctrlSlotsResistance, [COLOR_GUER]],
-            [civilian, _ctrlSlotsCivilian, [COLOR_CIVILIAN]]
+            [civilian, _ctrlSlotsCivilian, [COLOR_CIV]]
         ];
 
         ctrlPosition _ctrlSlotsBackground params ["_left", "_top", "_width", "_height"];
