@@ -1,7 +1,7 @@
 # Arma-3-Scripted-Lobby
 
 ### Screenshot
-![https://i.imgur.com/BhJyZrQ.png](https://i.imgur.com/BhJyZrQ.png)
+![https://i.imgur.com/CmzMiXW.png](https://i.imgur.com/CmzMiXW.png)
 
 ### Usage
 Read the `init.sqf`. It should be self explanatory.
