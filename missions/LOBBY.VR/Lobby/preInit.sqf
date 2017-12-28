@@ -1,7 +1,6 @@
 // by commy2
 #include "script_component.hpp"
 
-
 /* ----------------------------------------------------------------------------
 Internal Function: Lobby_localPlayer
 
@@ -74,6 +73,30 @@ Description:
     a slot and pressing "OK". Set to false by changing the slot selection.
 ---------------------------------------------------------------------------- */
 Lobby_acceptedPlayers = NAMESPACE_NULL;
+
+/* ----------------------------------------------------------------------------
+Internal Variable: Lobby_localPlayerIdentity
+
+Description:
+    Name, face, speaker, and pitch of the avatar.
+    <ARRAY[STRING,STRING,STRING,NUMBER]>
+---------------------------------------------------------------------------- */
+Lobby_localPlayerIdentity = ["Error: No vehicle","Default","",-1];
+
+if (hasInterface) then {
+    addMissionEventHandler ["EachFrame", {
+        switch (true) do {
+            case (isNull player): {
+                selectNoPlayer;
+            };
+            case (typeOf player == "VirtualMan_F"): {
+                Lobby_localPlayerIdentity = [name player, face player, speaker player, pitch player];
+                selectNoPlayer;
+                removeMissionEventHandler ["EachFrame", _thisEventHandler];
+            };
+        };
+    }];
+};
 
 if (isServer) then {
     missionNamespace setVariable ["Lobby_slottedPlayers", CREATE_NAMESPACE_GLOBAL, true];

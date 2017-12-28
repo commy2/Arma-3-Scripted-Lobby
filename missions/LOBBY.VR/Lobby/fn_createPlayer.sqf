@@ -20,7 +20,7 @@ private _group = createGroup [_side, true];
 
 private _unit = _group createUnit [_type, [0,0,0], [], 0, "NONE"];
 
-[_unit, [name _oldPlayer, face _oldPlayer, speaker _oldPlayer, pitch _oldPlayer], _slot] spawn {
+[_unit, Lobby_localPlayerIdentity, _slot] spawn {
     _this remoteExecCall ["Lobby_fnc_setIdentity"];
 };
 

@@ -18,6 +18,7 @@ _group = Lobby_ingameGroups getVariable [_groupId, grpNull];
 
 if (isNull _group) then {
     _group = createGroup [_side, true];
+    _group setGroupIdGlobal [groupId group _unit];
     Lobby_ingameGroups setVariable [_groupId, _group];
 };
 
