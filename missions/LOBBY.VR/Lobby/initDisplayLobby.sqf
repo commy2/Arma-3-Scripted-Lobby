@@ -6,6 +6,7 @@ Lobby_acceptedPlayers setVariable [str clientOwner, false, true];
 #define Lobby_accepted (Lobby_acceptedPlayers getVariable [str clientOwner, false])
 
 params ["_display"];
+uiNamespace setVariable ["Lobby_Display", _display];
 
 private _ctrlServer = _display displayCtrl IDC_LOBBY_SERVER;
 private _ctrlServerName = _display displayCtrl IDC_LOBBY_SERVER_NAME;

@@ -3,6 +3,13 @@ skipLobby = 1;
 briefing = 0;
 debriefing = 0;
 
+// debriefing for MP. Requires CBA to be applied.
+class Extended_DisplayLoad_EventHandlers {
+    class RscDisplayDebriefing {
+        Lobby_noDebriefing = "_this spawn {(_this select 0) closedisplay 2};";
+    };
+};
+
 #include "CfgFunctions.hpp"
 #include "ExportedGUIBaseClasses.hpp"
 #include "Lobby\gui.hpp"

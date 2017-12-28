@@ -7,8 +7,10 @@ if (getMissionConfigValue ["skipLobby", 0] != 1) exitWith {
 
 enableSaving [false, false];
 
-0 spawn {
-    uiSleep 0.01;
-    waitUntil {!isNull findDisplay 46};
-    findDisplay 46 createDisplay "Lobby_Display";
+if (hasInterface) then {
+    0 spawn {
+        uiSleep 0.01;
+        waitUntil {!isNull findDisplay 46};
+        findDisplay 46 createDisplay "Lobby_Display";
+    };
 };

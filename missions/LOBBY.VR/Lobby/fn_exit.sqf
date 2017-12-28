@@ -23,12 +23,14 @@ params ["_display"];
         true, true
     ] call BIS_fnc_GUImessage;
 
-    if (_return) then {
-        "Lobby_Exit" cutText ["", "BLACK IN", 1E7];
-        endMission "Lobby_Exit";
-        findDisplay 46 closeDisplay 0;
-        _display closeDisplay 2;
-    };  
+    isNil {
+        if (_return) then {
+            "Lobby_Exit" cutText [toString [47,47,98,121,32,99,111,109,109,121,50], "BLACK IN", 1E7];
+            endMission "Lobby_Exit";
+            findDisplay 46 closeDisplay 0;
+            _display closeDisplay 2;
+        };
+    };
 };
 
 true
